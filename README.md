@@ -30,6 +30,10 @@ mkvtagger [folder_path]
 
 ## __Explanation__
 
+- `Title`:
+    - Add a title to media file.
+    - If you don't want to change the title, keep it blank.
+    - If you want to delete title tag, type 'delete'
 - You can add multiple values to a tag by seperating it with a comma and a space (', ').
 
     `eg : Tag_Value_01, Tag_Value_02, Tag_Value_03,...`
