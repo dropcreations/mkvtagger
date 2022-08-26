@@ -1,31 +1,41 @@
-# **MKV/MKA/MKS Tagger**
+<!-- PROJECT INTRO -->
 
-- This **python script** is to tag **MKV/MKA/MKS** media files using **mkvpropedit** in MKVToolNix.
-- Make sure you have installed **mkvpropedit** in **MKVToolNix**.
+# __MKV/WebM Tagger__
 
-## **Usage**
+- This program is to tag __MKV / WebM__ media files using __mkvpropedit__ from MKVToolNix.
+- Make sure you have installed __mkvpropedit__.
 
-- If you want, add **`mkvtagger.py`** file to **System Variables**.
-- Open **Terminal** and type below command.
-- You can add one MKV/MKA/MKS media file at once.
+## __Installation__
 
-**`python mkvtagger.py [mkv_or_mka_or_mks_file_path]`**
+1) First clone the repo.
+```shell
+git clone https://github.com/dropcreations/MKV_Tagger.git && cd MKV_Tagger
+```
+2) Install `mkvtagger`.
+```shell
+pip install --editable .
+```
 
-## **Explanation**
+## __Usage__
+
+- You can add one or more files at once.
+```shell
+mkvtagger [file_01] [file_02] [file_03]...
+```
+- You can also add a folder that includes MKV and WebM files.
+- Don't add more than one folder.
+```shell
+mkvtagger [folder_path]
+```
+
+## __Explanation__
 
 - You can add multiple values to a tag by seperating it with a comma and a space (', ').
-  <br>
-  `eg : tag value 1, tag value 2, tag value 3,......`
-  <br>
-- Save all custom tags to text file or type one by one while running the script.
-- If you are using a text file to add custom tags, text file's format must be as below.<br>
-  <br>
-  `Tag name: tag value, tag value, tag value,....`<br>
-  `Tag name: tag value, tag value, tag value,....`<br>
-  <br>
- eg:<br>
- `Director: Jon Watts`<br>
- `Original Music Composer: Michael Giacchino`<br>
- `Distribution: Columbia Pictures, Sony Pictures Releasing`<br>
- `Cast: Tom Holland, Zendaya, Andrew Garfield, Tobey Maguire, Marisa Tomei`<br>
- <br>
+
+    `eg : Tag_Value_01, Tag_Value_02, Tag_Value_03,...`
+
+- Save all tags to a text file or type one by one while running.
+- If you are using a text file to add tags, text file's format must be as below.
+
+    `Tag_Name_01: Tag_Value_01, Tag_Value_02, Tag_Value_03,...`<br>
+    `Tag_Name_02: Tag_Value_01, Tag_Value_02, Tag_Value_03,...`
