@@ -1,45 +1,100 @@
-<!-- PROJECT INTRO -->
-
 # __MKV/WebM Tagger__
 
-- This program is to tag __MKV / WebM__ media files using __mkvpropedit__ from MKVToolNix.
-- Make sure you have installed __mkvpropedit__.
+A python script to tag __MKV / WebM__ media files using __mkvpropedit__ from MKVToolNix.
 
-## __Installation__
+<p align="center">
+    <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dropcreations/MKV-Tagger/main/assets/logo-for-dark.png">
+        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/dropcreations/MKV-Tagger/main/assets/logo-for-light.png">
+        <img alt="Matroska" src="https://raw.githubusercontent.com/dropcreations/MKV-Tagger/main/assets/logo-for-light.png">
+    </picture>
+</p>
 
-1) First clone the repo.
-```shell
-git clone https://github.com/dropcreations/MKV_Tagger.git && cd MKV_Tagger
+## __Features__
+
+- Adds official Matroska tags as well as unofficial custom tags.
+- Can add tag values as a single tag value and multiple tag values.
+- Removes encoded date, writing application, writing library tags if you need.
+- Refer [here](https://www.matroska.org/technical/tagging.html) for official tag names.
+
+## __How to use?__
+
+First of all clone this project or download the project as a zip file and extract it to your pc. Make sure you have installed __mkvpropedit__.
+
 ```
-2) Install `mkvtagger`.
-```shell
-pip install --editable .
+git clone https://github.com/dropcreations/MKV-Tagger.git && cd MKV-Tagger
 ```
 
-## __Usage__
+Install required modules for python (use `pip3` if `pip` doesn't work for you)
 
-- You can add one or more files at once.
-```shell
-mkvtagger [file_01] [file_02] [file_03]...
 ```
-- You can also add a folder that includes MKV and WebM files.
-- Don't add more than one folder.
-```shell
-mkvtagger [folder_path]
+pip install -r requirements.txt
 ```
 
-## __Explanation__
+You can add tags by a text file `.txt`. If you don't need a text file to add tags, you can simply add tags when console asked.
+If you're using a text file, text file's content must be formatted as below.
 
-- `Title`:
-    - Add a title to media file.
-    - If you don't want to change the title, keep it blank.
-    - If you want to delete title tag, type 'delete'
-- You can add multiple values to a tag by seperating it with a comma and a space (', ').
+```
+.
+TAG NAME: TAG VALUE
+TAG NAME: TAG VALUE, TAG VALUE
+.
+```
 
-    `eg : Tag_Value_01, Tag_Value_02, Tag_Value_03,...`
+and use `-t` or `--tags` parameter as below.
 
-- Save all tags to a text file or type one by one while running.
-- If you are using a text file to add tags, text file's format must be as below.
+```
+python mkvtagger.py -t [text_file.txt] [inputs]
+```
 
-    `Tag_Name_01: Tag_Value_01, Tag_Value_02, Tag_Value_03,...`<br>
-    `Tag_Name_02: Tag_Value_01, Tag_Value_02, Tag_Value_03,...`
+If you want to add tag values as multiple tags, use `-m` or `--multi` parameter as below.
+
+```
+python mkvtagger.py -m [input]
+```
+
+You can tag bulk files at once with the same tag-value pairs. Folder input is also support as wells as file input.
+If you have a folder containing `.mkv` and `.webm` files that you want to tag each as same. Put the folder path as the input.
+That folder can contain any other files. no matter. this script filters the `.mkv` and `.webm` files.
+You can add multiple inputs as below.
+
+```
+python mkvtagger.py [input-file] [input-file] [input-folder] [input-folder]
+```
+
+Get help using `-h` or `--help` parameter
+
+```
+usage: mkvtagger.py [-h] [-t TAGS] [-m] [--no-encoded-date] [--no-writing-application] [--no-writing-library] [inputs ...]
+
+Tag MKV/WebM files with OFFICIAL or UNOFFICIAL tags with multiple tag value support.
+
+positional arguments:
+  inputs                        Add input files or folders
+
+optional arguments:
+  -h, --help                    show this help message and exit
+  -t TAGS, --tags TAGS          Add tags from a text file
+  -m, --multi                   Use multiple tag values
+  --no-encoded-date             Remove encoded date
+  --no-writing-application      Remove writing application
+  --no-writing-library          Remove writing library
+
+```
+
+## About me
+
+Hi, I'm Dinitha. You might recognize me as GitHub's [dropcreations](https://github.com/dropcreations).
+
+__Other usefull python scripts done by me__
+
+| Project            | Github location                                      |
+|--------------------|------------------------------------------------------|
+| MKVExtractor       | https://github.com/dropcreations/MKVExtractor        |
+| FLAC-Tagger        | https://github.com/dropcreations/FLAC-Tagger         |
+| MP4/M4A-Tagger     | https://github.com/dropcreations/MP4-Tagger          |
+| Apple-Music-Tagger | https://github.com/dropcreations/Apple-Music-Tagger  |
+
+<br>
+
+- __NOTE: If you found any issue using this script mention in issues section__
