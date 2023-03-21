@@ -65,7 +65,8 @@ python mkvtagger.py [input-file] [input-file] [input-folder] [input-folder]
 Get help using `-h` or `--help` parameter
 
 ```
-usage: mkvtagger.py [-h] [-t TAGS] [-m] [--no-encoded-date] [--no-writing-application] [--no-writing-library] [inputs ...]
+usage: mkvtagger.py [-h] [-t TAGS] [-m] [--no-encoded-date] [--no-writing-application]
+                    [--no-writing-library] [inputs ...]
 
 Tag MKV/WebM files with OFFICIAL or UNOFFICIAL tags with multiple tag value support.
 
