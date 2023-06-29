@@ -1,6 +1,6 @@
-# __MKV/WebM Tagger__
+# __mkvtagger__
 
-A python script to tag __MKV / WebM__ media files using __mkvpropedit__ from MKVToolNix.
+A python program to tag __MKV & WebM__ media files using __mkvpropedit__ from MKVToolNix.
 
 <p align="center">
     <picture>
@@ -13,35 +13,35 @@ A python script to tag __MKV / WebM__ media files using __mkvpropedit__ from MKV
 ## __Features__
 
 - Adds official Matroska tags as well as unofficial custom tags.
-- Can add tag values as a single tag value and multiple tag values.
+- Can add tag values as a single tag value or multiple tag values.
 - Removes encoded date, writing application, writing library tags if you need.
 - Refer [here](https://www.matroska.org/technical/tagging.html) for official tag names.
 
 ## __How to use?__
 
-First of all clone this project or download the project as a zip file and extract it to your pc. Make sure you have installed __mkvpropedit__.
+First of all clone this project or download the project as a zip file and extract it to your pc (Windows users can see [Releases](https://github.com/dropcreations/mkvtagger/releases). Make sure you have __mkvpropedit__ in your system `PATH`.
 
 ```
-git clone https://github.com/dropcreations/MKV-Tagger.git && cd MKV-Tagger
+git clone https://github.com/dropcreations/mkvtagger.git && cd mkvtagger
 ```
 
-Install required modules for python (use `pip3` if `pip` doesn't work for you)
+Install required modules for python (use `pip3` if `pip` doesn't work for you), This program uses only one module from outside.
 
 ```
-pip install -r requirements.txt
+pip install rich
 ```
 
 You can add tags by a text file `.txt`. If you don't need a text file to add tags, you can simply add tags when console asked.
 If you're using a text file, text file's content must be formatted as below.
 
 ```
-.
 TAG NAME: TAG VALUE
 TAG NAME: TAG VALUE, TAG VALUE
 .
+.
 ```
 
-and use `-t` or `--tags` parameter as below.
+and use `-t` or `--tags` argument as below.
 
 ```
 python mkvtagger.py -t [text_file.txt] [inputs]
@@ -65,8 +65,7 @@ python mkvtagger.py [input-file] [input-file] [input-folder] [input-folder]
 Get help using `-h` or `--help` parameter
 
 ```
-usage: mkvtagger.py [-h] [-t TAGS] [-m] [--no-encoded-date] [--no-writing-application]
-                    [--no-writing-library] [inputs ...]
+usage: mkvtagger.py [-h] [-v] [-m] [-t TAGS] [--no-encoded-date] [--no-writing-application] [--no-writing-library] [inputs ...]
 
 Tag MKV/WebM files with OFFICIAL or UNOFFICIAL tags with multiple tag value support.
 
@@ -75,19 +74,19 @@ positional arguments:
 
 optional arguments:
   -h, --help                    show this help message and exit
-  -t TAGS, --tags TAGS          Add tags from a text file
+  -v, --version                 show program's version number and exit
   -m, --multi                   Use multiple tag values
+  -t TAGS, --tags TAGS          Add tags from a text file
   --no-encoded-date             Remove encoded date
   --no-writing-application      Remove writing application
   --no-writing-library          Remove writing library
-
 ```
 
 ## About me
 
-Hi, I'm Dinitha. You might recognize me as GitHub's [dropcreations](https://github.com/dropcreations).
+Hi, You might recognize me as GitHub's [dropcreations](https://github.com/dropcreations).
 
-__Other usefull python scripts done by me__
+__Other useful python scripts done by me__
 
 | Project            | Github location                                      |
 |--------------------|------------------------------------------------------|
