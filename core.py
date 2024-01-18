@@ -41,7 +41,7 @@ class MKVTagger(object):
                 print()
                 for tag_line in t:
                     tag_line = tag_line.strip()
-                    tag_name = tag_line.split(':')
+                    tag_name = tag_line.split(':', 1)
 
                     tag_value = self.__process_value(
                         tag_name[1].strip()
